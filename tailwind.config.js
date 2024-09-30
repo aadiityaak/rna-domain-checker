@@ -1,12 +1,14 @@
 module.exports = {
-  mode: "jit", // Aktifkan Just-in-Time compiler
+  mode: "jit", // Aktifkan Just-In-Time mode
   purge: [
-    "./**/*.php", // File PHP di WordPress (termasuk template)
-    "./assets/js/**/*.js", // File React/JavaScript di folder assets/js
-    "./assets/css/**/*.css", // Jika ada file CSS tambahan
+    "./**/*.php", // Scan semua file PHP
+    "./assets/js/**/*.js", // Scan semua file JS
+    "./assets/js/**/*.jsx", // Scan file JSX jika ada
+    "./assets/css/tailwind.css", // Pastikan file CSS juga termasuk
   ],
   theme: {
     extend: {},
   },
+  variants: {},
   plugins: [],
 };

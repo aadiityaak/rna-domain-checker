@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import ReactDOM from "react-dom";
+import "../css/tailwind.css";
 
 const DomainChecker = () => {
   const [domain, setDomain] = useState("");
@@ -48,7 +49,7 @@ const DomainChecker = () => {
       <button
         onClick={checkDomain}
         disabled={loading}
-        className="mt-4 w-full bg-blue-500 text-white py-2 rounded-md hover:bg-blue-600"
+        className="mt-3 w-full bg-blue-500 text-white py-2 rounded-md hover:bg-blue-600"
       >
         {loading ? "Checking..." : "Check Availability"}
       </button>

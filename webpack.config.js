@@ -2,36 +2,38 @@ const path = require("path");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
-  entry: "./assets/js/app.js", // Entry point untuk aplikasi React/JS
+  entry: "./assets/js/app.js", // Path ke file entry point JS
   output: {
-    path: path.resolve(__dirname, "assets/js"), // Output JS bundlenya
-    filename: "bundle.js",
+    path: path.resolve(__dirname, "assets/js"), // Path output JS
+    filename: "bundle.js", // Output file untuk JS
   },
+  mode: "development", // Set ke development mode untuk debugging
+  watch: true, // Aktifkan watch mode
   module: {
     rules: [
       {
-        test: /\.(js|jsx)$/,
+        test: /\.(js|jsx)$/, // Menangani file JS dan JSX
         exclude: /node_modules/,
         use: {
           loader: "babel-loader",
         },
       },
       {
-        test: /\.css$/, // Aturan untuk file CSS
+        test: /\.css$/, // Menangani file CSS
         use: [
-          MiniCssExtractPlugin.loader, // Mengekstrak CSS ke file terpisah
-          "css-loader", // Mengambil CSS sebagai string
-          "postcss-loader", // Menjalankan PostCSS (untuk Tailwind dan Autoprefixer)
+          MiniCssExtractPlugin.loader, // Ekstrak CSS ke file terpisah
+          "css-loader", // Ambil CSS sebagai string
+          "postcss-loader", // Jalankan PostCSS untuk Tailwind
         ],
       },
     ],
   },
   plugins: [
     new MiniCssExtractPlugin({
-      filename: "../css/tailwind.css", // Nama file output CSS
+      filename: "../css/bundle.css", // Output CSS ke bundle.css
     }),
   ],
   resolve: {
-    extensions: [".js", ".jsx"],
+    extensions: [".js", ".jsx"], // Resolusi untuk ekstensi JS dan JSX
   },
 };
