@@ -33,6 +33,11 @@ function rna_domain_checker_enqueue_frontend_scripts() {
             true
         );
     }
+    // Enqueue Tailwind CSS
+    wp_enqueue_style(
+        'rna-domain-checker-tailwind',
+        plugin_dir_url(__FILE__) . 'assets/css/tailwind.css'
+    );
 }
 add_action('wp_enqueue_scripts', 'rna_domain_checker_enqueue_frontend_scripts');
 
